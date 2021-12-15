@@ -23,11 +23,11 @@ export default {
         color: "#FFEA82",
         percentage: 1.0,
         type: "line",
-        sub: null
-      }
+        sub: null,
+      },
     };
   },
-  mounted: function() {
+  mounted: function () {
     console.log("crap");
     for (var key in this.field.options) {
       if (this.field.options.hasOwnProperty(key)) {
@@ -50,11 +50,7 @@ export default {
     },
 
     fieldValue() {
-      if (
-        this.field.value === "" ||
-        this.field.value === null ||
-        this.field.value === undefined
-      ) {
+      if (this.field.value === "" || this.field.value === null || this.field.value === undefined) {
         return false;
       }
 
@@ -63,7 +59,7 @@ export default {
 
     shouldDisplayAsHtml() {
       return this.field.asHtml;
-    }
+    },
   },
   methods: {
     drawLine(options) {
@@ -82,22 +78,22 @@ export default {
             position: "relative",
             padding: 0,
             margin: 0,
-            transform: null
+            transform: null,
           },
-          autoStyleContainer: false
+          autoStyleContainer: false,
         },
         from: { color: this.options.fromColor },
         to: { color: this.options.toColor },
         step: (state, bar) => {
-          bar.setText(Math.round(bar.value() * 100) + " %");
+          bar.setText(Math.round(bar.value() * 100) + "/100");
           if (this.options.animateColor) {
             bar.path.setAttribute("stroke", state.color);
           }
-        }
+        },
       });
 
       bar.animate(this.field.value);
-    }
-  }
+    },
+  },
 };
 </script>

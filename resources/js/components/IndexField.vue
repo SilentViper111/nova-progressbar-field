@@ -14,8 +14,8 @@ export default {
         color: "#FFEA82",
         percentage: 1.0,
         type: "line",
-        sub: null
-      }
+        sub: null,
+      },
     };
   },
   mounted: function() {
@@ -52,22 +52,22 @@ export default {
             position: "relative",
             padding: 0,
             margin: 0,
-            transform: null
+            transform: null,
           },
-          autoStyleContainer: false
+          autoStyleContainer: false,
         },
         from: { color: this.options.fromColor },
         to: { color: this.options.toColor },
         step: (state, bar) => {
-          bar.setText(Math.round(bar.value() * 100) + " %");
+          bar.setText(Math.round(bar.value() * 100) + "/100");
           if (this.options.animateColor) {
             bar.path.setAttribute("stroke", state.color);
           }
-        }
+        },
       });
 
       bar.animate(this.field.value);
-    }
-  }
+    },
+  },
 };
 </script>

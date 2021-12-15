@@ -1,5 +1,5 @@
 <template>
-  <span ref="chartContainer"></span>
+  <span class="bar" ref="chartContainer"></span>
 </template>
 
 <script>
@@ -19,7 +19,6 @@ export default {
     };
   },
   mounted: function() {
-    console.log("crap");
     for (var key in this.field.options) {
       if (this.field.options.hasOwnProperty(key)) {
         this.options[key] = this.field.options[key];
@@ -35,12 +34,13 @@ export default {
         break;
     }
   },
+
   methods: {
     drawLine(options) {
       var bar = new ProgressBar.Line(this.$refs.chartContainer, {
         strokeWidth: this.options.strokeWidth,
         easing: "easeInOut",
-        duration: 1400,
+        duration: 2000,
         color: this.options.color,
         trailColor: "#eee",
         trailWidth: 1,

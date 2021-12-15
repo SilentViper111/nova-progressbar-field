@@ -27,7 +27,7 @@ export default {
       },
     };
   },
-  mounted: function () {
+  mounted: function() {
     console.log("crap");
     for (var key in this.field.options) {
       if (this.field.options.hasOwnProperty(key)) {
